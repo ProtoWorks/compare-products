@@ -79,4 +79,31 @@ export interface Motherboard extends Hardware {
       constraints?: string[];
     }[];
   };
+
+  usb: {
+    location: string; // rear / header
+    generation: number;
+    type: string; // A, C
+    source: string;
+    number: number;
+  }[];
+
+  audio: {
+    manufacturer: string;
+    channel: string;
+  };
+
+  lan: {
+    maxSpeedGbps: number;
+    manufacturer: string;
+  }[];
+
+  headers: {
+    atx24pin: number;
+    atx8pin: number;
+    cpufan: number;
+    pumpfan?: boolean;
+    pwmfan: number;
+    tpm?: boolean;
+  };
 }

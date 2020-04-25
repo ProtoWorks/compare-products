@@ -131,4 +131,70 @@ export const TomahawkMax: Motherboard = {
       },
     ],
   },
+
+  usb: [
+    {
+      location: "rear",
+      generation: 3.2,
+      type: "C",
+      source: "Chipset",
+      number: 1,
+    },
+    {
+      location: "rear",
+      generation: 3.2,
+      type: "A",
+      source: "Chipset",
+      number: 1,
+    },
+    {
+      location: "header",
+      generation: 3.1,
+      type: "A",
+      source: "Chipset",
+      number: 2,
+    },
+    {
+      location: "rear",
+      generation: 2,
+      type: "A",
+      source: "Chipset",
+      number: 2,
+    },
+    {
+      location: "header",
+      generation: 2,
+      type: "A",
+      source: "Chipset",
+      number: 4,
+    },
+    {
+      location: "rear",
+      generation: 2,
+      type: "A",
+      source: "CPU",
+      number: 2,
+    },
+  ],
+
+  audio: {
+    manufacturer: "Realtek",
+    channel: "7.1",
+  },
+
+  lan: [
+    {
+      maxSpeedGbps: 1,
+      manufacturer: "Realtek",
+    },
+  ],
+
+  headers: {
+    atx24pin: 1,
+    atx8pin: 1,
+    cpufan: 1,
+    pumpfan: true,
+    pwmfan: 4,
+    tpm: true,
+  },
 };
