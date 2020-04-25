@@ -1,16 +1,28 @@
 export interface Hardware {
-  identifyer: string;
+  identifier: string;
   name: string;
   manufacturer: string;
 }
 
+export enum Socket {
+  FM2Plus,
+  LGA2011_v3,
+  LGA1151,
+  LGA3647,
+  LGA2066,
+  TR4,
+  SP3,
+  AM4,
+  sTRX4,
+}
+
 export interface Motherboard extends Hardware {
-  identifyer: string;
+  identifier: string;
   name: string;
   manufacturer: string;
 
   processor: {
-    socket?: string;
+    socket?: Socket;
     chipset?: string;
     integrated?: string;
 
@@ -19,28 +31,52 @@ export interface Motherboard extends Hardware {
 
   memory: {
     slots: number;
+    speedMHz: number[];
     generation: string; // DDRx
     types: {
       unregistered: boolean;
       registered: boolean;
       ecc: boolean;
+      eccInNonEccMode: boolean;
       nonEcc: boolean;
     };
     channels: number;
-    maxSize: number;
+    maxSizeGB: number;
 
     compatibleMeory?: string[];
   };
 
   pcie: {
-    version: number;
+    // starting with 1. Mini-ITX has 1, ATX has 1-7.
     location: number;
+
+    generation: number;
     source: string;
-    physicalSize: 1 | 2 | 4 | 8 | 16;
-    actualMaxSize: 1 | 2 | 4 | 8 | 16;
-    actualSizes: {
-      withThesePopulated: string[];
-      size: 0 | 1 | 2 | 4 | 8 | 16;
+    size: 1 | 2 | 4 | 8 | 16;
+    maxLanes: 1 | 2 | 4 | 8 | 16;
+    actualLanes?: {
+      constraints: string[];
+      lanes: 0 | 1 | 2 | 4 | 8 | 16;
     }[];
   }[];
+
+  storage?: {
+    sata?: {
+      location: number;
+      generation: number;
+      source: string;
+      constraints?: string[];
+    }[];
+    m2?: {
+      pcie?: {
+        generation: number;
+        lanes: number;
+      };
+      sata?: {
+        generation: number;
+      };
+      length: number[];
+      constraints?: string[];
+    }[];
+  };
 }
