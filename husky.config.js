@@ -9,6 +9,7 @@ module.exports = {
       'npm run build',
       'cpy --parents build docs',
       'git add docs'
-    ])
+    ]),
+    'pre-push': 'npm test'
   }
 }
