@@ -7,8 +7,9 @@ module.exports = {
       'rimraf docs',
       'rimraf build',
       'npm run build',
-      'cpy build docs',
-      'git add docs/*'
-    ])
+      'cpy --parents build docs',
+      'git add docs'
+    ]),
+    'pre-push': 'npm test'
   }
 }
