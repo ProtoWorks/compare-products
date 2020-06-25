@@ -7,7 +7,7 @@ module.exports = {
       'rimraf docs',
       'rimraf build',
       'npm run build',
-      'cpy --parents build docs',
+      'mve build docs',
       'git add docs'
     ])
   }

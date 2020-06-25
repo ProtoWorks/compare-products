@@ -53,9 +53,8 @@
     ]
   },
   "devDependencies": {
-    "copyfiles": "^2.2.0",
-    "cpy-cli": "^3.1.0",
     "husky": "^4.2.5",
+    "mve": "^0.1.2",
     "rimraf": "^3.0.2"
   },
   "homepage": "compare-products"
